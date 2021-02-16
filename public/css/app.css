@@ -26,7 +26,7 @@ body{
 
 
 /* Breakpoint */
-@media (max-width: 575.98px){
+@media (max-width: 380px){
     .navbar{
         position: fixed;
         width: 100%;
@@ -49,7 +49,7 @@ body{
         justify-content: center;
     }
     .large-title{
-        font-size: 2.4em;
+        font-size: 2em;
     }
     img.jumbo-img{
         display: flex;

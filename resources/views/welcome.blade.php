@@ -7,7 +7,7 @@
                 <h1 class="large-title">Make Your Business<br>More Classy</h1>
                 <a href="#" class="btn btn-secondary">Start Your First Business</a>
             </div>
-            <img src="{{ asset('img/cafe.png') }}" class="jumbo-img" alt="">
+            <img src="{{ asset('img/drawkit-grape-pack-illustration-9.svg') }}" class="jumbo-img" alt="">
         </div>
     </div>
 

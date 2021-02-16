@@ -26,6 +26,12 @@ body{
 
 
 /* Breakpoint */
+@media (min-width: 1200px){
+    img.jumbo-img{
+        width: 350px;
+        height: 350px;
+    }
+}
 @media (max-width: 380px){
     .navbar{
         position: fixed;

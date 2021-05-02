@@ -17,6 +17,22 @@
     </head>
     <body id="page-top">
         <style>
+            .preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background-color: #fff;
+            }
+            .loading {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                font: 14px arial;
+            }
             @media (max-width: 991.98px) { 
                 .navbar-nav{
                     text-align: center
@@ -29,6 +45,17 @@
                 }
             }
         </style>
+        {{-- loading --}}
+        <div class="preloader">
+            <div class="loading">
+            <div class="spinner-grow text-success" style="width: 4rem; height:4rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="row mt-3">
+                <strong>Harap Tunggu!</strong>
+              </div>
+            </div>
+        </div>
         <!-- Navigation-->
         <nav class="px-5 navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 100px;height: 50px;" src="{{ asset('img/LogoSiAgen.png') }}" alt="" /></a>
@@ -203,15 +230,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('js/scripts.js') }}"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init({
                 duration: 1200,
+            });
+
+            $(document).ready(function() {
+                $(".preloader").fadeOut("slow");
             });
         </script>
     </body>

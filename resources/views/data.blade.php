@@ -2,7 +2,34 @@
 @extends('home')
 
 @section('content')
-
+<style>
+     .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-color: #fff;
+    }
+    .loading {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font: 14px arial;
+    }
+</style>
+<div class="preloader">
+    <div class="loading">
+    <div class="spinner-grow text-success" style="width: 4rem; height:4rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="row mt-3">
+      <strong>Harap Tunggu!</strong>
+    </div>
+    </div>
+</div>
 
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary my-5" data-toggle="modal" data-target="#exampleModal">
@@ -58,13 +85,6 @@
 </div>
 
 <a href="/pegawai/export_excel" class="btn btn-success my-3" target="_blank"><i class="fas fa-file-excel"></i> Export Excel</a>
-
-@if($errors->has('file'))
-    <span class="invalid-feedback" role="alert">
-      <strong>a</strong>
-    </span>
-@endif
-
 {{-- <form class="form-inline my-3 ml-auto" method="GET" action="/pegawai/cari">
   <select name="cari" id="" class="form-control">
     <option value="" selected disabled>Pilih Golongan</option>

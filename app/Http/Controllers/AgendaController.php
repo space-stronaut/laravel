@@ -23,7 +23,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        $agendas = Agenda::orderBy('waktu', 'desc')->get();
+        $agendas = Agenda::orderBy('id', 'desc')->get();
         $workers = Worker::all();
         return view('agendas.data', compact('agendas', 'workers'));
     }

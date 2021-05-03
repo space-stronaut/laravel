@@ -2,6 +2,7 @@
 @extends('home')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/newstyle.css') }}">
 <style>
      .preloader {
         position: fixed;
@@ -19,6 +20,7 @@
         transform: translate(-50%,-50%);
         font: 14px arial;
     }
+    
 </style>
 <div class="preloader">
     <div class="loading">
@@ -119,145 +121,149 @@
     </button>
   </div>
 @enderror
-<table class="table table-striped table-border table-hover tab-reload" border="2">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nama</th>
-        <th scope="col" >NIP</th>
-        <th scope="col" >Bidang</th>
-        <th scope="col">Jabatan</th>
-        <th scope="col">Golongan</th>
-        @auth
-        <th scope="col">Aksi</th>
-        @endauth
-      </tr>
-    </thead>
-    <tbody>
-        @foreach ($workers as $worker)
-      <tr>
-        <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $worker->nama }}</td>
-        <td>{{ $worker->nip }}</td>
-        <td><b>{{ $worker->bidang }}</b></td>
-        <td>{{ $worker->jabatan }}</td>
-        <td>{{ $worker->golongan }}</td>
-        @auth
-        <td>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal{{ $worker->id }}">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="editModal{{ $worker->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Edit Pegawai</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="card p-4">
-                    <form action="/pegawai/update/{{ $worker->id }}" method="POST" class="needs-validator" novalidate>
-                        @csrf
-                        @method('put')
-                        <div class="form-group">
-                            <label for="">Nama Lengkap</label>
-                          <input type="text" class="form-control" name="nama" value="{{ $worker->nama }}" placeholder="Nama Lengkap" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                        <div class="invalid-feedback">
-                            Nama Wajib Diisi
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">NIP</label>
-                        <input type="tel" maxlength="21"  id="txtnumbers"  name="nip" minlength="21" pattern="[0-9-]{21}" class="form-control" placeholder="NIP" value="{{ $worker->nip }}" required>
+<div class="card p-4">
+  <div class="table-responsive service">
+    <table class="table table-fixed table-hover mb-0 css-serial" border="2">
+      <thead class="thead-dark table-fixed">
+        <tr>
+          <th scope="col" class="atasbro">Id</th>
+          <th scope="col" class="atasbro">Nama</th>
+          <th scope="col" class="atasbro">NIP</th>
+          <th scope="col" class="atasbro">Bidang</th>
+          <th scope="col" class="atasbro">Jabatan</th>
+          <th scope="col" class="atasbro">Golongan</th>
+          @auth
+          <th scope="col" class="atasbro">Aksi</th>
+          @endauth
+        </tr>
+      </thead>
+      <tbody>
+          @foreach ($workers as $worker)
+        <tr>
+          <th scope="row">{{ $loop->iteration }}</th>
+          <td>{{ $worker->nama }}</td>
+          <td>{{ $worker->nip }}</td>
+          <td><b>{{ $worker->bidang }}</b></td>
+          <td>{{ $worker->jabatan }}</td>
+          <td>{{ $worker->golongan }}</td>
+          @auth
+          <td>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal{{ $worker->id }}">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="editModal{{ $worker->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Pegawai</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="card p-4">
+                      <form action="/pegawai/update/{{ $worker->id }}" method="POST" class="needs-validator" novalidate>
+                          @csrf
+                          @method('put')
+                          <div class="form-group">
+                              <label for="">Nama Lengkap</label>
+                            <input type="text" class="form-control" name="nama" value="{{ $worker->nama }}" placeholder="Nama Lengkap" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <div class="invalid-feedback">
-                            NIP Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Bidang</label>
-                            {{-- <input type="text" name="Nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('Nama') }}" id="exampleInputPassword1"> --}}
-                            <select name="bidang" class="form-control" id="" required>
-                                <option disabled selected value>Pilih Bidang</option>
-                                <option value="Sekretariat" {{ $worker->bidang ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
-                                <option value="Pengelolaan Barang Milik Daerah" {{ $worker->bidang ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
-                                <option value="Perbendaharaan" {{ $worker->bidang ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
-                                <option value="Akuntansi dan pelaporan" {{ $worker->bidang ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
-                                <option value="Anggaran" {{ $worker->bidang ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
-                            </select>
-                            <div class="invalid-feedback">
-                                Bidang Wajib Diisi
-                            </div>
+                              Nama Wajib Diisi
                           </div>
-                        <div class="form-group">
-                            <label for="">Jabatan</label>
-                          <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="{{ $worker->jabatan }}" id="exampleCheck1" required>
-                          <div class="invalid-feedback">
-                            Jabatan Wajib Diisi
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="golongan"> 
-                                Golongan   
-                            </label>
-                            <select name="golongan" class="form-control" id="" required>
-                                <option value="" disabled selected>Pilih Golongan</option>
-                                <option value="II A" {{ $worker->golongan ==  "II A"  ? 'selected' : '' }}>II A</option>
-                                <option value="II B" {{ $worker->gologan ==  "II B"  ? 'selected' : '' }}>II B</option>
-                                <option value="II C" {{ $worker->golongan ==  "II C"  ? 'selected' : '' }}>II C</option>
-                                <option value="III A" {{ $worker->golongan ==  "III A"  ? 'selected' : '' }}>III A</option>
-                                <option value="III B" {{ $worker->golongan ==  "III B"  ? 'selected' : '' }}>III B</option>
-                                <option value="III C" {{ $worker->golongan ==  "III C"  ? 'selected' : '' }}>III C</option>
-                                <option value="III D" {{ $worker->golongan ==  "III D"  ? 'selected' : '' }}>III D</option>
-                                <option value="IV A" {{ $worker->golongan ==  "IV A"  ? 'selected' : '' }}>IV A</option>
-                                <option value="IV B" {{ $worker->golongan ==  "IV B"  ? 'selected' : '' }}>IV B</option>
-                                <option value="IV C" {{ $worker->golongan ==  "IV C"  ? 'selected' : '' }}>IV C</option>
-                            </select>
+                          </div>
+                          <div class="form-group">
+                              <label for="">NIP</label>
+                          <input type="tel" maxlength="21"  id="txtnumbers"  name="nip" minlength="21" pattern="[0-9-]{21}" class="form-control" placeholder="NIP" value="{{ $worker->nip }}" required>
                             <div class="invalid-feedback">
-                                Golongan Wajib Diisi
+                              NIP Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
+                          </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="">Bidang</label>
+                              {{-- <input type="text" name="Nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('Nama') }}" id="exampleInputPassword1"> --}}
+                              <select name="bidang" class="form-control" id="" required>
+                                  <option disabled selected value>Pilih Bidang</option>
+                                  <option value="Sekretariat" {{ $worker->bidang ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
+                                  <option value="Pengelolaan Barang Milik Daerah" {{ $worker->bidang ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
+                                  <option value="Perbendaharaan" {{ $worker->bidang ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
+                                  <option value="Akuntansi dan pelaporan" {{ $worker->bidang ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
+                                  <option value="Anggaran" {{ $worker->bidang ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
+                              </select>
+                              <div class="invalid-feedback">
+                                  Bidang Wajib Diisi
+                              </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </form>
-                </div>
+                          <div class="form-group">
+                              <label for="">Jabatan</label>
+                            <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="{{ $worker->jabatan }}" id="exampleCheck1" required>
+                            <div class="invalid-feedback">
+                              Jabatan Wajib Diisi
+                          </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="golongan"> 
+                                  Golongan   
+                              </label>
+                              <select name="golongan" class="form-control" id="" required>
+                                  <option value="" disabled selected>Pilih Golongan</option>
+                                  <option value="II A" {{ $worker->golongan ==  "II A"  ? 'selected' : '' }}>II A</option>
+                                  <option value="II B" {{ $worker->gologan ==  "II B"  ? 'selected' : '' }}>II B</option>
+                                  <option value="II C" {{ $worker->golongan ==  "II C"  ? 'selected' : '' }}>II C</option>
+                                  <option value="III A" {{ $worker->golongan ==  "III A"  ? 'selected' : '' }}>III A</option>
+                                  <option value="III B" {{ $worker->golongan ==  "III B"  ? 'selected' : '' }}>III B</option>
+                                  <option value="III C" {{ $worker->golongan ==  "III C"  ? 'selected' : '' }}>III C</option>
+                                  <option value="III D" {{ $worker->golongan ==  "III D"  ? 'selected' : '' }}>III D</option>
+                                  <option value="IV A" {{ $worker->golongan ==  "IV A"  ? 'selected' : '' }}>IV A</option>
+                                  <option value="IV B" {{ $worker->golongan ==  "IV B"  ? 'selected' : '' }}>IV B</option>
+                                  <option value="IV C" {{ $worker->golongan ==  "IV C"  ? 'selected' : '' }}>IV C</option>
+                              </select>
+                              <div class="invalid-feedback">
+                                  Golongan Wajib Diisi
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                      </form>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapusModal{{ $worker->id }}">
-  <i class="fas fa-trash"></i>
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="hapusModal{{ $worker->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hapus Pegawai</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Yakin Ingin Menghapusnya?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="/pegawai/hapus/{{ $worker->id }}" class="btn btn-danger">Hapus</a>
+            <!-- Button trigger modal -->
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapusModal{{ $worker->id }}">
+    <i class="fas fa-trash"></i>
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="hapusModal{{ $worker->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Hapus Pegawai</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Yakin Ingin Menghapusnya?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="/pegawai/hapus/{{ $worker->id }}" class="btn btn-danger">Hapus</a>
+        </div>
       </div>
     </div>
   </div>
+        </td>
+          @endauth
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>    
 </div>
-      </td>
-        @endauth
-      </tr>
-      @endforeach
-    </tbody>
-  </table>    
 
   @if (count($errors) > 0)
       <script>

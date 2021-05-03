@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:ital,wght@0,300;0,500;0,600;1,400&display=swap');
+
+*{
+	font-family: 'Inter';
+}
+.table, .text-wrap table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+}
+.table th, .text-wrap table th, .text-wrap table td {
+	padding: 0.75rem;
+	vertical-align: top;
+}
+.table td {
+	padding: 0.75rem;
+	vertical-align: top;
+}
+thead{
+	font-size: 15px;
+}
+th{
+	font-size: 14px;
+}
+td{
+	font-size: 14px;
+}
+.border {
+	padding: 0.75rem;
+	vertical-align: top;
+	border: 1px solid #eaedf1;
+}
+.table thead th, .text-wrap table thead th {
+	vertical-align: bottom;
+	border-bottom: 1px solid #eaedf1;
+}
+.table tbody+tbody, .text-wrap table tbody+tbody {
+	border-top: 2px solid #eaedf1;
+}
+.table .table, .text-wrap table .table, .table .text-wrap table, .text-wrap .table table, .text-wrap table table {
+	background-color: #f1f1f9;
+}
+.table-sm th, .table-sm td {
+	padding: 0.3rem;
+}
+.table-bordered, .text-wrap table {
+	border: 1px solid #eaedf1;
+}
+.table-bordered th, .text-wrap table th, .table-bordered td, .text-wrap table td {
+	border: 1px solid #eaedf1;
+}
+.table-bordered thead th, .text-wrap table thead th, .table-bordered thead td, .text-wrap table thead td {
+	border-bottom-width: 2px;
+}
+.table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless tbody+tbody {
+	border: 0;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+.table-hover tbody tr:hover {
+	background-color: #f1f1f9;
+}
+.table-hover tbody th {
+	background-color: #f1f1f9;
+}
+.table-primary, .table-primary>th, .table-primary>td {
+	background-color: #d2cdf9;
+}
+.table-hover .table-primary:hover {
+	background-color: #b7cded;
+}
+.table-hover .table-primary:hover>td, .table-hover .table-primary:hover>th {
+	background-color: #b7cded;
+}
+.table-secondary, .table-secondary>th, .table-secondary>td {
+	background-color: #fdccdb;
+}
+.table-hover .table-secondary:hover {
+	background-color: #cfd2d6;
+}
+.table-hover .table-secondary:hover>td, .table-hover .table-secondary:hover>th {
+	background-color: #cfd2d6;
+}
+.table-success, .table-success>th, .table-success>td {
+	background-color: #d2ecb8;
+}
+.table-hover .table-success:hover {
+	background-color: #c5e7a4;
+}
+.table-hover .table-success:hover>td, .table-hover .table-success:hover>th {
+	background-color: #c5e7a4;
+}
+.table-info, .table-info>th, .table-info>td {
+	background-color: #cbe7fb;
+}
+.table-hover .table-info:hover {
+	background-color: #b3dcf9;
+}
+.table-hover .table-info:hover>td, .table-hover .table-info:hover>th {
+	background-color: #b3dcf9;
+}
+.table-warning, .table-warning>th, .table-warning>td {
+	background-color: #f1d5a7;
+}
+.table-hover .table-warning:hover {
+	background-color: #fae8a4;
+}
+.table-hover .table-warning:hover>td, .table-hover .table-warning:hover>th {
+	background-color: #fae8a4;
+}
+.table-danger, .table-danger>th, .table-danger>td {
+	background-color: #f1c1c0;
+}
+.table-hover .table-danger:hover {
+	background-color: #ecacab;
+}
+.table-hover .table-danger:hover>td, .table-hover .table-danger:hover>th {
+	background-color: #ecacab;
+}
+.table-light, .table-light>th, .table-light>td {
+	background-color: #fdfdfe;
+}
+.table-hover .table-light:hover {
+	background-color: #ececf6;
+}
+.table-hover .table-light:hover>td, .table-hover .table-light:hover>th {
+	background-color: #ececf6;
+}
+.table-dark, .table-dark>th, .table-dark>td {
+	background-color: #c6c8ca;
+}
+.table-hover .table-dark:hover {
+	background-color: #b9bbbe;
+}
+.table-hover .table-dark:hover>td, .table-hover .table-dark:hover>th {
+	background-color: #b9bbbe;
+}
+.table-active, .table-active>th, .table-active>td {
+	background-color: rgba(0, 0, 0, 0.04);
+}
+.table-hover .table-active:hover {
+	background-color: rgba(0, 0, 0, 0.04);
+}
+.table-hover .table-active:hover>td, .table-hover .table-active:hover>th {
+	background-color: rgba(0, 0, 0, 0.04);
+}
+.table .thead-dark th, .text-wrap table .thead-dark th {
+	color: #f1f1f9;
+	background-color: #212529;
+	border-color: #32383e;
+}
+.table .thead-light th, .text-wrap table .thead-light th {
+	color: #495057;
+	background-color: #f1f1f9;
+	border-color: #eaedf1;
+}
+.table-dark {
+	color: #f1f1f9;
+	background-color: #212529;
+}
+.table-dark th, .table-dark td, .table-dark thead th {
+	border-color: #32383e;
+}
+.table-dark.table-bordered, .text-wrap table.table-dark {
+	border: 0;
+}
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+.table-dark.table-hover tbody tr:hover {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+.table.dataTable thead th{
+	border-bottom:0 !important;
+}
+@media (max-width: 575.98px) {
+	.table-responsive-sm {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+	.table-responsive-sm>.table-bordered, .text-wrap .table-responsive-sm>table {
+		border: 0;
+	}
+	.countdown-timer-wrapper .timer .timer-wrapper .time {
+		font-size: 25px !important;
+		font-weight: bold;
+		color: #fff;
+		width:60px !important;
+		height:60px !important;
+		border-radius:50px;
+		background:linear-gradient(to bottom right ,rgb(0, 0, 0,0.1),rgb(0, 0, 0,0.1)); 
+		line-height:2.3;
+		text-align:center;
+		margin:0 auto;
+		margin-bottom:5px;
+		position:relative;
+		overflow:hidden;
+	}
+	.countdown-timer-wrapper {
+		border-radius: 5px;
+		margin-bottom: 30px;
+		max-width: 320px !important;
+	}
+	.construction .display-2 {
+		font-size: 2.3rem !important;
+	}
+	.countdown-timer-wrapper .timer {
+		padding: 0px !important;
+		text-align: center;
+	}
+
+}
+@media (max-width: 767.98px) {
+	.table-responsive-md {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+	.table-responsive-md>.table-bordered, .text-wrap .table-responsive-md>table {
+		border: 0;
+	}
+}
+@media (max-width: 991.98px) {
+	.table-responsive-lg {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+	.table-responsive-lg>.table-bordered, .text-wrap .table-responsive-lg>table {
+		border: 0;
+	}
+}
+@media (max-width: 1279.98px) {
+	.table-responsive-xl {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+	.table-responsive-xl>.table-bordered, .text-wrap .table-responsive-xl>table {
+		border: 0;
+	}
+}
+.table-responsive {
+	display: block;
+	width: 100%;
+	height: 550px;
+	overflow-x: auto;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.atasbro{
+    position:sticky;
+    top:0;
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.table-responsive>.table-bordered, .text-wrap .table-responsive>table {
+	border: 0;
+}

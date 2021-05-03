@@ -225,9 +225,9 @@ return [
 
     'menu' => [
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Home',
+            'url'  => 'home',
+            'can'  => 'fas fa-fw fa-home',
         ],
         ['header' => 'PENGATURAN'],
         [

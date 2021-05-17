@@ -24,7 +24,7 @@ Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/data-agenda', [WelcomeController::class, 'tampil']);
 Route::get('/data-pegawai', [WelcomeController::class, 'show']);
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // pegawai
 

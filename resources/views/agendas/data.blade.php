@@ -79,7 +79,7 @@
         </tr>
       </thead>
       <tbody>
-          @foreach ($agendas as $agenda)
+          @forelse ($agendas as $agenda)
         <tr>
           <td>
               <ul>
@@ -197,15 +197,15 @@
             </div>
         </td>
         </tr>
-        @endforeach
+        @empty
+          <tr>
+            <h1 class="text-center">Tidak Ada Data</h1>
+          </tr>
+        @endforelse
       </tbody>
     </table> 
   </div>
 </div>
-
-  <script>
-    $('form').DataTable();
-</script>
 
   <script>
 

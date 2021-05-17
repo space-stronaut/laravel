@@ -118,7 +118,7 @@
                     <a href="{{ url('/data-agenda') }}" class="nav-link">Lihat Selengkapnya</a>
                 </div>
                 <div class="row justify-content-between mt-5" data-aos="fade-up">
-                    @foreach ($agendas as $agenda)
+                    @forelse ($agendas as $agenda)
                     <div class="card col-5 mb-3" data-aos="fade-up" id="card-reload">
                       <div class="card-header">
                         <ul>
@@ -133,7 +133,11 @@
                         <i class="fas fa-map-marker-alt text-grey fa-fw"></i><small class="ml-3">{{ $agenda->lokasi }}</small>
                       </div>
                     </div>
-                    @endforeach
+                    @empty
+                        <h4 class="text-center mx-auto">
+                            <strong>Tidak Ada Agenda Hari Ini</strong>
+                        </h4>
+                    @endforelse
                 </div>
             </div>
         </section>

@@ -33,6 +33,9 @@
                 transform: translate(-50%,-50%);
                 font: 14px arial;
             }
+            td{
+                font-size: 15px;
+            }
             @media (max-width: 991.98px) { 
                 .navbar-nav{
                     text-align: center
@@ -119,13 +122,15 @@
                 </div>
                 <div class="row justify-content-between mt-5" data-aos="fade-up">
                     @forelse ($agendas as $agenda)
-                    <div class="card col-5 mb-3" data-aos="fade-up" id="card-reload">
+                    <div class="card col-5 mb-3 border-primary" data-aos="fade-up" id="card-reload">
                       <div class="card-header">
-                        <ul>
-                          @foreach ($agenda->workers as $worker)
-                              <li><b>{{ $worker->nama }}</b></li>
-                          @endforeach
-                        </ul>
+                          <div class="row justify-content-between">
+                            @foreach ($agenda->workers as $worker)
+                            <div class="col mr-2 card bg-primary">
+                                <b class="text-white">{{ $worker->nama }}</b>
+                            </div>
+                            @endforeach
+                          </div>
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">{{ $agenda->agenda }}</h5>

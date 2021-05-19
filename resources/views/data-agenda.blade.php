@@ -52,42 +52,48 @@
           nav{
               z-index: 5;
           }
+          .wrap{
+              display : flex;
+              flex-wrap: wrap;
+          }
 
       </style>
-    
+
       <div class="container" style="padding-top: 80px" id="container">
         <div class="row justify-content-center pt-5" style="padding-top: 80px" data-aos="fade-up">
 
             <h3 style="border-bottom: 3px solid #34c830">Agenda Hari Ini</h3>
-            
+
 
         </div>
-        
-        <div class="row justify-content-between mt-5 content"> 
-            @forelse ($agendas as $agenda)
-            <div class="card col-5 mb-3" data-aos="fade-up" id="card-reload">
-              <div class="card-header">
-                <ul>
+
+        <div class="row justify-content-between mt-5 content">
+          @forelse ($agendas as $agenda)
+          <div class="card col-5 mb-3 border-success" data-aos="fade-up" id="card-reload">
+            <div class="card-header">
+                <div class="row justify-content-between ">
                   @foreach ($agenda->workers as $worker)
-                      <li><b>{{ $worker->nama }}</b></li>
+                  <div class="col-10 mr-2 my-2 card bg-success">
+                      <b class="text-white" style="font-size: 15px">{{ $worker->nama }}</b>
+                  </div>
                   @endforeach
-                </ul>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ $agenda->agenda }}</h5>
-                <i class="fas fa-clock text-grey fa-fw"></i><small class="ml-3">{{ $agenda->mulai }} - {{ $agenda->selesai }}</small><br>
-                <i class="fas fa-map-marker-alt text-grey fa-fw"></i><small class="ml-3">{{ $agenda->lokasi }}</small>
-              </div>
+                </div>
             </div>
-            @empty
-                <h4 class="text-center mx-auto">
+            <div class="card-body">
+              <h5 class="card-title">{{ $agenda->agenda }}</h5>
+              <i class="fas fa-clock text-grey fa-fw"></i><small class="ml-3">{{ $agenda->mulai }} - {{ $agenda->selesai }}</small><br>
+              <i class="fas fa-map-marker-alt text-grey fa-fw"></i><small class="ml-3">{{ $agenda->lokasi }}</small>
+            </div>
+          </div>
+          @empty
+              <h4 class="text-center mx-auto">
                   <strong>Tidak Ada Agenda Hari Ini</strong>
-                </h4>
-            @endforelse
+              </h4>
+          @endforelse
         </div>
-		
-		
-		
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="//code.jquery.com/jquery.min.js"></script>

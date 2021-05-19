@@ -240,6 +240,11 @@ return [
             'url'  => 'agenda',
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
+        [
+            'text' => 'Admin',
+            'url'  => 'admin',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         ['header' => 'labels'],
         [
             'text'       => 'Danger',

@@ -31,7 +31,7 @@ $(function () {
                 $text.val($text.val() + '-');
             }
         }
-    })
+    });
 
 
     // $( ".selector" ).datepicker({
@@ -55,22 +55,3 @@ $(function () {
 
 });
 
-tail.select(".mdb-select", {
-    search: true
-});
-
-var tanggal = document.querySelector('.tanggal');
-
-var date = new Date();
-var tangg = date.getDay();
-
-tanggal.textContent = tangg;
-
-
-var i = document.querySelector('.select-date');
-var a = document.querySelector('.scope-loop');
-var c = document.querySelector('.agenda-waktu');
-
-if(i.textContent !== c.textContent || i.textContent !== 'All'){
-    a.style.display = 'none';
-}

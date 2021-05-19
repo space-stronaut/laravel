@@ -57,6 +57,9 @@
           nav{
               z-index: 5;
           }
+          td{
+            font-size: 15px;
+          }
 
       </style>
     

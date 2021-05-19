@@ -121,31 +121,31 @@
     </button>
   </div>
 @enderror
-<div class="card p-4">
-  <div class="table-responsive service">
-    <table class="table table-fixed table-hover mb-0 css-serial" border="2">
-      <thead class="thead-dark table-fixed">
-        <tr>
-          <th scope="col" class="atasbro">Id</th>
-          <th scope="col" class="atasbro">Nama</th>
-          <th scope="col" class="atasbro">NIP</th>
-          <th scope="col" class="atasbro">Bidang</th>
-          <th scope="col" class="atasbro">Jabatan</th>
-          <th scope="col" class="atasbro">Golongan</th>
-          @auth
-          <th scope="col" class="atasbro">Aksi</th>
-          @endauth
-        </tr>
-      </thead>
-      <tbody>
-          @foreach ($workers as $worker)
-        <tr>
-          <th scope="row">{{ $loop->iteration }}</th>
-          <td>{{ $worker->nama }}</td>
-          <td>{{ $worker->nip }}</td>
-          <td><b>{{ $worker->bidang }}</b></td>
-          <td>{{ $worker->jabatan }}</td>
-          <td>{{ $worker->golongan }}</td>
+  <div class="card p-4">
+    <div class="table-responsive service">
+      <table class="table table-fixed table-hover mb-0 css-serial" border="2">
+        <thead class="thead-dark table-fixed">
+          <tr>
+            <th scope="col" class="atasbro">Id</th>
+            <th scope="col" class="atasbro">Nama</th>
+            <th scope="col" class="atasbro">NIP</th>
+            <th scope="col" class="atasbro">Bidang</th>
+            <th scope="col" class="atasbro">Jabatan</th>
+            <th scope="col" class="atasbro">Golongan</th>
+            @auth
+            <th scope="col" class="atasbro">Aksi</th>
+            @endauth
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($workers as $worker)
+          <tr>
+            <th scope="row">{{ $loop->iteration }}</th>
+            <td>{{ $worker->nama }}</td>
+            <td>{{ $worker->nip }}</td>
+            <td><b>{{ $worker->bidang }}</b></td>
+            <td>{{ $worker->jabatan }}</td>
+            <td>{{ $worker->golongan }}</td>
           @auth
           <td>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal{{ $worker->id }}">
@@ -265,13 +265,12 @@
   </div>    
 </div>
 
-  @if (count($errors) > 0)
-      <script>
-        $(document).ready(function () {
-          $('#importExcel').modal('show');
-        });
-      </script>
-  @endif
+  @error('file')
+  <script>
+    var modalToggle = document.getElementById('importExcel') // relatedTarget
+myModal.show(modalToggle);
+  </script>
+  @enderror
 
       <script>
 

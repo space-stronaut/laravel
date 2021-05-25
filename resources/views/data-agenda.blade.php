@@ -73,7 +73,7 @@
             <div class="card-header">
                 <div class="row justify-content-between ">
                   @foreach ($agenda->workers as $worker)
-                  <div class="col-10 mr-2 my-2 card bg-success">
+                  <div class="col-5 mr-2 my-2 card bg-success">
                       <b class="text-white" style="font-size: 15px">{{ $worker->nama }}</b>
                   </div>
                   @endforeach

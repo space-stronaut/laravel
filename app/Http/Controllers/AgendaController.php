@@ -56,9 +56,9 @@ class AgendaController extends Controller
             'workers.required'          => 'Nama wajib diisi.',
             'agenda.required'      => 'Agenda Wajib diisi.',
             'lokasi.required'           => 'Lokasi Wajib Diisi.',
-            'waktu.required'         => 'Waktu Wajib diisi.'    
+            'waktu.required'         => 'Waktu Wajib diisi.'
         ]);
-    
+
         $agendas = Agenda::create([
             'agenda' => $request->agenda,
             'lokasi' => $request->lokasi,
